@@ -1,0 +1,48 @@
+// vCss Styles
+
+/* 公用全局CSS */
+@import "../libs/base.less";
+@import "../libs/mixins.less";
+@import "../libs/mixins_CSS3.less";
+
+.aa{
+	.bg("http://www.ve.cn/img/logo.png");
+	.bg-m("http://www.ve.cn/img/logo.png",0,0,repeat-y);
+	.bgr-fix();
+	.max-width(600px);
+	.max-height(600px);
+	.opa(50);
+	.ellipsis(20px);
+
+}
+
+.triangle-b{
+	.triangle-b(20px, #f60)
+}
+.triangle-t{
+	.triangle-t(10px, #000)
+}
+.triangle-r{
+	.triangle-r()
+}
+.triangle-l{
+	.triangle-l();
+	.border-radius(2px);
+	.box-shadow(inset 0 2px 4px red)
+}
+
+.box-shadow{
+	width: 100px;height: 100px;
+	border: 1px solid #ccc;
+	padding: 30px;
+	margin: 30px;
+	font-size: 16px;
+	.skewY(20deg);
+
+	.transitions(~'width .2s ease 3s,height .5s ease 6s');
+
+	i{
+	　@fx:top;
+	　.triangle(@fx);
+	}
+}

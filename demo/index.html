@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>v.less使用说明</title>
+	<link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../dist/css/v.css">
+	<script src="../vendor/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+	<div class="jumbotron masthead">
+      <div class="container">
+        <h1>vLess</h1>
+        <h2>vLess是一个基于less的框架，其提供一些简洁常用的CSS写法</h2>
+        <p>版本：v.0.1.0</p>
+      </div>
+    </div>
+    <div class="container">
+    	<div class="row">
+        <div class="col-md-12">
+          <table class="table table-bordered">
+            <thead>
+              <tr class="tbhead">
+                <th style="width:40%">less语法</th>
+                <th style="width:60%">作用(详解/例子)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="trfirst"><td colspan="2">reset</td></tr>
+              <tr>
+                <td><code>.reset()</code></td>
+                <td>
+                	<div class="td-con">
+                	<i>重置</i>
+                	<p>后期如果有其它重置代码，可以在<i>base.less</i>里面重新加个函数调用即可</p>
+                	</div>
+                </td>
+              </tr>
+              <tr class="trfirst"><td colspan="2">布局</td></tr>
+              <tr>
+                <td><code>.m-auto()</code></td>
+                <td>
+                	<div class="td-con">
+                		<i>普通居中</i>，无默认值，其生成 <i>margin-left: auto;</i>和<i>margin-right: auto;</i>
+                	</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.m-container(@w)</code></td>
+                <td>
+                	<div class="td-con">
+                		<i>普通居中带默认宽度</i>其默认值为<i>1100px</i>，可直接传入数值即可
+                	</div>
+                </td>
+              </tr>
+               <tr>
+                <td><code>.z-index(@index)</code></td>
+                <td>
+                	<div class="td-con">
+                		<i>z-index</i>，默认值为<i>1</i>
+                	</div>
+                </td>
+              </tr>
+              <tr class="trfirst"><td colspan="2">浮动</td></tr>
+              <tr>
+                <td><code>.fl()</code></td>
+                <td>
+                	<div class="td-con"><i>左浮动</i>，其默认值为左浮动,可在括号内传入<code>left</code>或<code>right</code>改变浮动方向</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.fr()</code></td>
+                <td>
+                	<div class="td-con"><i>右浮动</i>，其默认值为右浮动,可在括号内传入<code>left</code>或<code>right</code>改变浮动方向</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.clearfix()</code></td>
+                <td><div class="td-con"><i>清除浮动</i>在使用时也可以直接使用<i>.clearfix</i>类名即可实现清除浮动</div></td>
+              </tr>
+              <tr class="trfirst"><td colspan="2">display</td></tr>
+               <tr>
+                <td><code>.d-b()</code></td>
+                <td>
+                	<div class="td-con"><i>display:block</i></div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.d-n()</code></td>
+                <td>
+                	<div class="td-con"><i>display:none</i></div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.d-i()</code></td>
+                <td>
+                	<div class="td-con"><i>display:inline</i></div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.d-ib()</code></td>
+                <td>
+                	<div class="td-con"><i>display:inline-block</i></div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.d-ib7()</code></td>
+                <td>
+                	<div class="td-con"><i>display:inline-block</i>增加到对<i>ie6、7</i>块元素不支持<i>inline-block</i>的兼容问题</div>
+                </td>
+              </tr>
+              <tr class="trfirst"><td colspan="2">font</td></tr>
+              <tr>
+                <td><code>.font-fm()</code></td>
+                <td>
+                	<div class="td-con"><i>微软雅黑</i>字体</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.font-fs()</code></td>
+                <td>
+                	<div class="td-con"><i>宋体</i>字体</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.font-fa()</code></td>
+                <td>
+                	<div class="td-con"><i>Arial</i>字体</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.font-fv()</code></td>
+                <td>
+                	<div class="td-con"><i>Verdana</i>字体</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.font-wb()</code></td>
+                <td>
+                	<div class="td-con"><i>文字加粗</i></div>
+                </td>
+              </tr>
+               <tr>
+                <td><code>.font-wn()</code></td>
+                <td>
+                	<div class="td-con"><i>文字不加粗/普通文字</i></div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.font-s()</code></td>
+                <td>
+                	<div class="td-con"><i>font-size字体大小</i>，默认值为12,可(传入任意数值且必须带的px)，例如：<i>.font-s(14px);</i></div>
+                </td>
+              </tr>
+              <tr class="trfirst"><td colspan="2">定位</td></tr>
+              <tr>
+                <td><code>.pos-rel()</code></td>
+                <td>
+                	<div class="td-con"><i>相对定位</i>，可传入<i>relative</i>、<i>absolute</i>、<i>fixed</i>改变其值</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.pos-abs()</code></td>
+                <td>
+                	<div class="td-con"><i>绝对定位</i>，可传入<i>relative</i>、<i>absolute</i>、<i>fixed</i>改变其值</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.pos-fix()</code></td>
+                <td>
+                	<div class="td-con"><i>固定定位</i>，可传入<i>relative</i>、<i>absolute</i>、<i>fixed</i>改变其值</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.pos()</code></td>
+                <td>
+                	<div class="td-con">综合，必须传参，如：
+<i>.pos(r)</i>使用方法，在某个选择器内写变量名称并传入<i>r</i>、<i>a</i>、<i>f</i>即可</div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.pos-box-cc(@w,@h,@pos)</code></td>
+                <td>
+                	<div class="td-con"><i>定位居中元素</i>
+其默认值为<i>width:400px;height:400px;</i>,默认定位方式为<i>position: absolute;</i>，可直接传入值即可改变定位、<i>已做水平和垂直居中处理</i></div>
+                </td>
+              </tr>
+              <tr class="trfirst"><td colspan="2">背景</td></tr>
+              <tr>
+                <td><code>.bg(@url)</code></td>
+                <td>
+                	<div class="td-con"><p><i>background</i>,填充背景，只需要传入<i>url</i>就好</p>
+					<p>注：<i>url必须用引号括起来</i>，推荐使用双引号。</p>
+				  <p> 默认的位置为 <i>background-position: 0 0;</i> 、<i>background-repeat:repeat</i></p></div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.bg-m(@url,@x:0,@y:0,@repeat:no-repeat)</code></td>
+                <td>
+                	<div class="td-con"><i>background</i>,填充背景，可传入多参数。 默认的位置为 <i>background-position: 0 0;</i> 、<i>background-repeat:repeat</i></div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.bgi(@url)</code></td>
+                <td>
+                	<div class="td-con"><p><i>background-image</i>,填充背景，只需要传入url就好</p>
+                	<p>注：<i>url必须用引号括起来</i>，推荐使用双引号。</p></div>
+                </td>
+              </tr>
+               <tr>
+                <td><code>.bgr-x()</code></td>
+                <td>
+                	<div class="td-con"><p><i>background-repeat: repeat-x</i></p></div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.bgr-y()</code></td>
+                <td>
+                	<div class="td-con"><p><i>background-repeat: repeat-y</i></p></div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.bgr-no()</code></td>
+                <td>
+                	<div class="td-con"><p><i>background-repeat: no-repeat</i></p></div>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.bgr-fix()</code></td>
+                <td>
+                	<div class="td-con"><i>background-attachment: fixed</i>背景固定值</div>
+                </td>
+              </tr>
+               <tr class="trfirst"><td colspan="2">文字相关</td></tr>
+                <tr>
+                <td><code>.l-h(@h)</code></td>
+                <td>
+                	<div class="td-con"><i>文字在某个容器垂直居中</i>注，必须传入<i>高度值</i>，不传值会报错</div>
+                </td>
+              </tr>
+	            <tr>
+	            <td><code>.tdu(@p:underline)</code></td>
+	            <td>
+	            	<div class="td-con"><i>text-decoration</i>文字下划线，默认值为：<i>underline</i>、可在括号内传入相应的值. </div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td><code>.tdn()</code></td>
+	            <td>
+	            	<div class="td-con"><i>text-decoration:none</i>文字无划线</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td><code>.tal()</code></td>
+	            <td>
+	            	<div class="td-con"><i>text-align:left</i>文字左对齐</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td><code>.tar()</code></td>
+	            <td>
+	            	<div class="td-con"><i>text-align:right</i>文字右对齐</div>
+	            </td>
+	          </tr>
+	            <tr>
+	            <td><code>.tac()</code></td>
+	            <td>
+	            	<div class="td-con"><i>text-align:center</i>文字居中对齐</div>
+	            </td>
+	          </tr>
+	          <tr class="trfirst"><td colspan="2">最小高宽度值</td></tr>
+	          <tr>
+	            <td><code>.min-width(@width)</code></td>
+	            <td>
+	            	<div class="td-con"><i>min-width</i>最小宽度值，需要传一个<i>宽度值</i>，不传值会报错</div>
+	            </td>
+	          </tr>
+	         <tr>
+	            <td><code>.max-width(@width)</code></td>
+	            <td>
+	            	<div class="td-con"><i>max-width</i>最大宽度值，需要传一个<i>宽度值</i>，不传值会报错</div>
+	            </td>
+	          </tr>
+	         <tr>
+	            <td><code>.min-height(@height)</code></td>
+	            <td>
+	            	<div class="td-con"><i>min-height</i>最小高度值，需要传一个<i>高度值</i>，不传值会报错</div>
+	            </td>
+	          </tr>
+	         <tr>
+	            <td><code>.max-height(@height)</code></td>
+	            <td>
+	            	<div class="td-con"><i>max-height</i>最大高度值，需要传一个<i>高度值</i>，不传值会报错</div>
+	            </td>
+	          </tr>
+	         <tr class="trfirst"><td colspan="2">透明度</td></tr>
+	         <tr>
+	            <td><code>.opa()</code></td>
+	            <td>
+	            	<div class="td-con"><i>透明度</i>其默认值为<i>80</i>，已添加对IE低版本的兼容。
+注：传值的时候，需要传<i>0~100</i>之间的数字</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td><code>.rgba(@red, @green, @blue, @alpha:1)</code></td>
+	            <td>
+	            	<div class="td-con"><i>css3背景透明</i>，可用于普通元素，内部已添加对低版本浏览器的处理，可全兼容。<i>(r,g,b,a)</i>括号内必须传参</div>
+	            </td>
+	          </tr>
+	          <tr class="trfirst"><td colspan="2">文字省略号</td></tr>
+	          <tr>
+	            <td><code>.ellipsis-basic()</code></td>
+	            <td>
+	            	<div class="td-con"><i>文字省略号</i>，需要配合宽度使用</div>
+	            </td>
+	          </tr>
+	         <tr>
+	            <td><code>.ellipsis(@width)</code></td>
+	            <td>
+	            	<div class="td-con"><i>文字省略号</i>，需要传一个宽度值</div>
+	            </td>
+	          </tr>
+	          <tr class="trfirst"><td colspan="2">三角形</td></tr>
+	         <tr>
+	            <td><code>.triangle()</code></td>
+	            <td>
+	            	<div class="td-con"><i>css2的三角形</i>，已对低版本IE浏览器兼容，使用方法<br>
+						<pre>					i{
+					　@fx:top;
+					　.triangle(@fx);
+					}
+					</pre>
+					<p>此时三角为向下的三角，可直接传入<i>top</i>、<i>right</i>、<i>bottom</i>、<i>left</i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.triangle-t(@w:5px,@color:#ccc)</code> - 上</p>
+					<p><code>.triangle-r(@w:5px,@color:#ccc)</code> - 右</p>
+					<p><code>.triangle-b(@w:5px,@color:#ccc)</code> - 下</p>
+					<p><code>.triangle-l(@w:5px,@color:#ccc)</code> - 左</p>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>css2的三角形</i>，已对低版本IE浏览器兼容，默认大小为<i>5</i>，默认 颜色为<i>#ccc</i><br> 
+					注：<i>-t</i>代码三角朝向上方向(其他依次类推)</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <!-- css3  -->
+	          <!--  <tr class="trfirst"><td colspan="2"><span style="color:red">CSS3</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;需要引入mixins_CSS3.less</td></tr>  -->
+	           <tr class="trfirst"><td colspan="2">CSS3</td></tr>
+	           <tr>
+	            <td>
+					<code>.border-radius(@radius)</code>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>圆角</i>默认圆角为<i>5px</i>，可在<i>( )</i>内传参
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.border-top-left-radius()</code></p>
+					<p><code>.border-top-right-radius()</code></p>
+					<p><code>.border-bottom-left-radius()</code></p>
+					<p><code>.border-bottom-right-radius()</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>单角圆角</i>默认值为<i>5px</i>，可在<i>( )</i>内传参
+	            	</div>
+	            </td>
+	          </tr>
+	           <tr>
+	            <td>
+					<p><code>.border-top-radius()</code></p>
+					<p><code>.border-right-radius()</code></p>
+					<p><code>.border-bottom-radius()</code></p>
+					<p><code>.border-left-radius()</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>单边圆角</i>拿<i>.border-top-radius()</i>举例：左上边与右上边都有圆角效果，其它以此类推、默认值为<i>5px</i>，可在<i>( )</i>内传参
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<code>.background-clip()</code>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>规定背景的绘制区域</i>默认值为<i>border-box</i>
+	            	<p>可用参数：</p>
+	            	<p><i>border-box</i> 背景被裁剪到边框盒</p>
+					<p><i>padding-box</i> 背景被裁剪到内边距框</p>
+					<p><i>content-box</i> 背景被裁剪到内容框</p>
+	            	</div>
+	            </td>
+	          </tr>
+	         <tr>
+	            <td>
+					<code>.background-origin()</code>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>规定背景图片的定位原点</i>即背景开始的位置。默认值为<i>padding-box</i>
+	            	<p>可用参数：</p>
+	            	<p><i>border-box</i> 从border区域开始显示背景</p>
+					<p><i>padding-box</i> 从padding区域开始显示背景</p>
+					<p><i>content-box</i> 从content区域开始显示背景</p>
+	            	</div>
+	            </td>
+	          </tr>
+	         <tr>
+	            <td>
+					<code>.background-size()</code>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>规定背景图像的尺寸</i>默认值为<i>auto</i>
+	            	<p>可用参数：</p>
+	            	<p><i>length</i> 设置背景图像的高度和宽度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 "auto"。</p>
+					<p><i>percentage</i> 用百分比来控制。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 "auto"。</p>
+					<p><i>cover</i> 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。(背景图像的某些部分也许无法显示在背景定位区域中。)</p>
+					<p><i>contain</i> 把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<code>.box-shadow()</code>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>盒子阴影</i>默认值为<i>0px 0px 5px #ccc</i>,可传入参数<i>x&nbsp;&nbsp;y&nbsp;&nbsp;阴影大小&nbsp;&nbsp;颜色</i>
+	            	<p>如需要使用多阴影，可使用less过滤语法,如：<i>~'-2px 0 5px green,0 -2px 5px blue,0 2px 5px red,2px 0 5px yellow'</i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	         <tr>
+	            <td>
+					<code>.text-shadow()</code>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>文字阴影</i>默认值为<i>0px 0px 2px #333</i>,可传入参数<i>x&nbsp;&nbsp;y&nbsp;&nbsp;阴影大小&nbsp;&nbsp;颜色</i>
+	            	<p>多阴影的使用方法参数上面<i>盒子阴影</i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<code>.box-sizing()</code>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>盒模型计算方式</i>默认值为<i>content-box</i>,可传入参数
+	            	<p>可用参数：</p>
+	            	<p><i>content-box </i>在宽度和高度之外绘制元素的内边距和边框</p>
+					<p><i>border-box</i>为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制</p>
+					<p><i>inherit</i>规定应从父元素继承 box-sizing 属性的值</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<code>.font-face(@path, @font-name)</code>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>font-face 自定义字体</i><i>@path</i>路径、<i>@font-name</i>字体名称<br>
+				    <p>例如：文件放到了 ../style/font/vefont.eot(等), 那么 <i>@path</i>传入 ../style/font <i>@font-name</i>传入 vefont 即可</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<code>.linear-gradient(@startColor, @endColor)</code>
+				</td>
+	            <td>
+	            	<div class="td-con"><i>线性渐变</i>可传入一个开始颜色值<i>@startColor</i>和一个结束颜色<i>@endColor</i> <p>注：这个只能实现从上到下简单渐变效果</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr class="trfirst"><td colspan="2">transform 变形</td></tr>
+	         <tr>
+	            <td>
+					<p><code>.rotate(@degrees)</code></p>
+					<p><code>.rotateX(@degrees)</code></p>
+					<p><code>.rotateY(@degrees)</code></p>
+					<p><code>.rotateZ(@degrees)</code></p>
+					<p><code>.rotate3d(@x, @y, @z, @degrees)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>rotate 旋转</i>、<i>@degrees</i>参数默认值都为<i>0deg</i>依数传入值即可、通过 rotate() 方法，元素顺时针旋转给定的角度。允许负值，元素将逆时针旋转</p>
+	            	<p>应用实例</p>
+	            	<p><i>.rotate(60deg)</i>定义 2D 旋转，在参数中规定角度</p>
+					<p><i>.rotateX(30deg)</i>定义沿 X 轴的 3D 旋转</p>
+					<p><i>.rotatey(30deg)</i>定义沿 Y 轴的 3D 旋转</p>
+					<p><i>.rotatez(30deg)</i>定义沿 Z 轴的 3D 旋转</p>
+					<p><i>.rotate3d(1, 2, 3, 10deg)</i>定义 3D 旋转</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.scale(@x, @y)</code></p>
+					<p><code>.scaleX(@x)</code></p>
+					<p><code>.scaleY(@y)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>scale 缩放</i>、参数默认值都为<i>0</i>通过 scale() 方法，以元素进行缩放，元素的尺寸会增加或减少，可根据给定的宽度（X 轴）和高度（Y 轴）参数传值</p>
+	            	<p>应用实例</p>
+	            	<p><i>.scale(2,.8)</i>定义 2D 缩放转换，改变元素的宽度和高度</p>
+					<p><i>.scaleX(.8)</i>定义 2D 缩放转换，改变元素的宽度</p>
+					<p><i>.scaleY(2)</i>定义 2D 缩放转换，改变元素的高度</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.translate(@x, @y)</code></p>
+					<p><code>.translateX(@x)</code></p>
+					<p><code>.translateY(@y)</code></p>
+					<p><code>.translateZ(@Z)</code></p>
+					<p><code>.translate3d(@x, @y, @z)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>translate 移动</i>、通过 translate() 方法，元素从其当前位置移动，根据给定的 left（x 坐标） 和 top（y 坐标） 位置参数</p>
+	            	<p>应用实例</p>
+	            	<p><i>.translate(10px,10px)</i>定义 2D 转换，沿着 X 和 Y 轴移动元素</p>
+					<p><i>.translateX(20px)</i>定义 2D 转换，沿着 X 轴移动元素</p>
+					<p><i>.translateY(20px)</i>定义 2D 转换，沿着 Y 轴移动元素</p>
+					<p><i>.translateZ(20px)</i>定义 3D 转化，仅使用用于 Z 轴的值</p>
+					<p><i>.translate3d(60px,20px,10px)</i>定义 3D 转化,其参数对应X、Y、Z轴</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.skew(@x, @y)</code></p>
+					<p><code>.skew(@x)</code></p>
+					<p><code>.skew(@y)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>skew 倾斜</i>、通过 skew() 方法，元素翻转给定的角度，根据给定的水平线（X 轴）和垂直线（Y 轴）参数</p>
+	            	<p>应用实例</p>
+	            	<p><i>.skew(10deg,10deg)</i>定义 2D 倾斜转换，沿着 X 和 Y 轴</p>
+					<p><i>.skewX(10deg)</i>定义 2D 倾斜转换，沿着 X 轴</p>
+					<p><i>.skewY(10deg)</i>定义 2D 倾斜转换，沿着 Y 轴</p>
+	            	</div>
+	            </td>
+	          </tr>
+	         <tr class="trfirst"><td colspan="2">transition 过渡</td></tr>
+	         <tr>
+	            <td>
+					<p><code>.transition(@property, @duration, @timing, @delay)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>transition 过渡</i>、过渡效果的简写属性，用于在一个属性中设置四个过渡属性
+	            	<p><i>@property</i>过渡的CSS属性名称</p>
+	            	<p><i>@duration</i>过渡持续的时间</p>
+	            	<p><i>@timing</i>过渡效果的时间曲线,时间曲线函数下面有介绍</p>
+	            	<p><i>@delay</i>过渡效果的何时开始</p>
+	            	<p>例:<i>.transition(background,1s,ease-in-out,6s)</i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.transitions(@string)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>transition 多效果过渡</i>、如需多个样式添加过渡效果，请添加多个属性，由逗号隔开，所以有了这个函数</p>
+	            	<p>例:<i>.transitions(~'width .2s ease 3s,height .5s ease 6s') </i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.transition-property(@type)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>过渡的 CSS 属性的名称</i>默认值为<i>all</i>可传入需要过渡的属性：如<i>width</i>、<i>height</i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.transition-duration(@type)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>过渡效果持续的时间</i>默认值为<i>0s</i>,可根据需要传值</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.transition-timing(@transition-timing)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>过渡时间函数</i>默认值为<i>ease</i></p>
+	            	<p>可传的参数有：<i>linear</i>、<i>ease</i>、<i>ease-in</i>、<i>ease-out</i>、<i>ease-in-out</i>、<i>cubic-
+bezier(n,n,n,n)</i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	           <tr>
+	            <td>
+					<p><code>.transition-delay(@type)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>过渡延迟的时间</i>默认值为<i>0s</i>,可根据需要传值</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr class="trfirst"><td colspan="2">animations 动画</td></tr>
+	          <tr>
+	            <td>
+					<p><code>.animation(@animation)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>animation 动画</i> 其参数有：<i>animation-name</i>、<i>animation-duration</i> 、</p>
+	            	<p> <i>animation-timing-function</i>、 <i>animation-delay</i> 、 <i>animation-iteration-count</i> 、</p> 
+	            	<p><i>animation-direction</i> 、<i>animation-play-state</i> 所有的属性说明下面会一一讲解</p>
+	            	<p>使用：</p>
+	            	<p>单个动画效果：<i>.animation(myfirst 5s linear 2s infinite alternate)</i></p>
+	            	<p>多个动画效果：<i>.animation(~'myfirst 5s linear 2s infinite alternate,myfirst2 6s linear 2s infinite alternate')</i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.animation-name(@name)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>动画的名称</i> 是由Keyframes创建的动画名,必须传入动画名，否则会报错</p>
+	            	</div>
+	            </td>
+	          </tr>
+	           <tr>
+	            <td>
+					<p><code>.animation-duration(@duration)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>播放动画所持续的时间长 </i>可根据需要传值，如<i>2s</i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.animation-timing-function(@timing-function)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>动画时间函数</i></p>
+	            	<p>可传的参数有：<i>linear</i>、<i>ease</i>、<i>ease-in</i>、<i>ease-out</i>、<i>ease-in-out</i>、<i>cubic-
+bezier(n,n,n,n)</i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.animation-delay(@delay)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>元素动画开始时间</i>需传入时间数，如<i>2s</i></p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.animation-iteration-count(@iteration-count)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>元素播放动画的循环次数</i>可以取值为数字，其默认值为<i>1</i>、<i>infinite</i>为无限次数循环</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.animation-direction(@direction)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>元素动画播放的方向</i>默认值为<i>normal</i>，如果设置为normal时，动画的每次循环都是向前播放；</p>
+	            	<p>另一个值是<i>alternate</i>，他的作用是，动画播放在第偶数次向前播放，第奇数次向反方向播放</p>
+	            	</div>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>
+					<p><code>.animation-play-start(@play-start)</code></p>
+				</td>
+	            <td>
+	            	<div class="td-con"><p><i>控制元素动画的播放状态</i>参数有：<i>running</i>和<i>paused</i></p>
+	            	<p><i>runing</i> 规定动画已暂停</p>
+	            	<p><i>paused</i> 规定动画正在播放</p>
+	            	</div>
+	            </td>
+	          </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+ <!-- nav 定位 -->
+ <div id="r-Scroll" class="r-fixNav">
+ 	<ul class="nav nav-pills nav-stacked" id="pushCon">
+	  <!-- <li class="active"><a href="#">Home</a></li>
+	  <li><a href="#">Profile</a></li> -->
+	</ul>
+ </div>
+ <!-- nav 定位 end /-->
+   <script>
+   $(function(){
+   		var arr = [];      //存内容
+   		var arrTop = [];   //存位置
+   		var len = $('.trfirst').size();
+   		var oCon = $('#pushCon');
+   		var html = '';
+   		$('.trfirst').each(function(i){
+   			arr.push($(this).find('td').text());  
+   			arrTop.push($(this).offset().top);   
+   		})
+   		for(var i=0;i<len;i++){
+   			html+= "<li><a  data-floor="+ i +" href='javascript:;''>"+arr[i]+"</a></li>";
+   		}
+   		oCon.append(html)  //动态添加内容
+
+   		var 
+ 			tap_click = false;
+      		aLi = oCon.find('li');
+   		//aLi.eq(0).addClass('active');
+   		for(var i=0;i<aLi.length;i++){
+   			(function(i){
+   			$(aLi[i]).click(function(){
+	            tap_click=true;
+	   			$(this).addClass('active').siblings().removeClass("active");
+	   			$('html,body').stop().animate({scrollTop: arrTop[i]}, 500,function(){
+	            tap_click = false;
+	              });
+   				})
+   			})(i);
+   		}
+
+   		//边栏出现效果
+   	 	$(window).scroll(function(){
+	    	  if(!tap_click){
+              var _flag = true;
+              var _scrollTop = $(window).scrollTop();
+              if(_scrollTop < 150){
+                $("#r-Scroll").stop().animate({
+                        top: '-700px'
+                    },400);
+              }else if(_scrollTop > 150 && _flag){
+                _flag = false;
+                $("#r-Scroll").stop().animate({
+                        top: '80px'
+                    },500);
+              };
+
+              for(var i=0;i<arrTop.length;i++){
+                if(_scrollTop > arrTop[i] - 60){
+                  $(aLi[i]).addClass('active').siblings().removeClass("active");
+                }
+              }
+          }
+	    })
+
+   })
+   </script>
+</body>
+</html>

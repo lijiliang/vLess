@@ -1,0 +1,70 @@
+// =============================================
+// @des:         vCss
+// @author:      jiliang
+// @time:        2015-03-07
+// @version      0.1 beta
+// =============================================
+
+// common reset
+.reset(){
+    blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul{margin:0;padding:0;}
+    //* HTML5 display-role reset for older browsers *//
+    article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+    body,button,input,select,textarea{font:12px/1.5 'Microsoft YaHei',tahoma,arial,'Hiragino Sans GB',~'\5b8b\4f53',sans-serif;}
+    h1,h2,h3,h4,h5,h6{font-size:100%;}
+    address,cite,dfn,em,var,code,kbd,pre,samp{font-style:normal;}
+    small{font-size:12px;}
+    ol,ul{list-style:none;}
+    sup{vertical-align:text-top;}
+    sub{vertical-align:text-bottom;}
+    legend{color:#000;}
+    fieldset,img{border:0;}
+    button,input,select,textarea{font-size:100%;}
+    table{border-collapse:collapse;border-spacing:0;}
+    a, a:active, a:focus, input{outline:none;}
+    a, a:active, a:focus{color:#333; text-decoration:none;}
+    a:hover{color:#ff4785;text-decoration:underline;}
+    //清除浮动
+    .clearfix{
+      *zoom: 1;
+      &:before,
+      &:after {
+        display: table;
+        content: "";
+        line-height: 0;
+      }
+      &:after {
+        clear: both;
+      }
+    }
+}
+
+.reset();
+
+/* function */
+.f-function(){
+.f-ib{display:inline-block;*display:inline;*zoom:1;}
+.f-dn{display:none;}
+.f-db{display:block;}
+.f-fl{float:left;}
+.f-fr{float:right;}
+.f-pr{position:relative;}
+.f-prz{position:relative;zoom:1;}
+.f-oh{overflow:hidden;}
+.f-fs1{font-size:12px;}
+.f-fs2{font-size:14px;}
+.f-fwn{font-weight:normal;}
+.f-fwb{font-weight:bold;}
+.f-tal{text-align:left;}
+.f-tac{text-align:center;}
+.f-tar{text-align:right;}
+.f-wsn{word-wrap:normal;white-space:nowrap;}
+.f-pre{overflow:hidden;text-align:left;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;}
+.f-wwb{white-space:normal;word-wrap:break-word;word-break:break-all;}
+.f-ti2{text-indent:2em;}
+.f-tdu,.f-tdu:hover{text-decoration:underline;}
+.f-tdn,.f-tdn:hover{text-decoration:none;}
+.f-toe{overflow:hidden;word-wrap:normal;white-space:nowrap;text-overflow:ellipsis;}
+.f-csp{cursor:pointer;}
+.f-ovh{overflow: hidden;}
+}

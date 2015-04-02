@@ -1,0 +1,489 @@
+//
+// Mixins CSS3
+// --------------------------------------------------
+
+//* border-radius 圆角 *//
+.border-radius(@radius: 5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+//单角
+.border-top-left-radius(@radius: 5px) {
+  -webkit-border-top-left-radius: @radius;
+      -moz-border-radius-topleft: @radius;
+          border-top-left-radius: @radius;
+}
+.border-top-right-radius(@radius: 5px) {
+  -webkit-border-top-right-radius: @radius;
+      -moz-border-radius-topright: @radius;
+          border-top-right-radius: @radius;
+}
+.border-bottom-right-radius(@radius: 5px) {
+  -webkit-border-bottom-right-radius: @radius;
+      -moz-border-radius-bottomright: @radius;
+          border-bottom-right-radius: @radius;
+}
+.border-bottom-left-radius(@radius: 5px) {
+  -webkit-border-bottom-left-radius: @radius;
+      -moz-border-radius-bottomleft: @radius;
+          border-bottom-left-radius: @radius;
+}
+//单边
+.border-top-radius(@radius: 5px) {
+  .border-top-right-radius(@radius);
+  .border-top-left-radius(@radius);
+}
+.border-right-radius(@radius: 5px) {
+  .border-top-right-radius(@radius);
+  .border-bottom-right-radius(@radius);
+}
+.border-bottom-radius(@radius: 5px) {
+  .border-bottom-right-radius(@radius);
+  .border-bottom-left-radius(@radius);
+}
+.border-left-radius(@radius: 5px) {
+  .border-top-left-radius(@radius);
+  .border-bottom-left-radius(@radius);
+}
+
+//* background-clip 规定背景的绘制区域 *//
+	//@params    border-box   padding-box    content-box
+.background-clip(@background-clip: border-box){
+	-webkit-background-clip: @background-clip;
+	   -moz-background-clip: @background-clip;
+	        background-clip: @background-clip;
+}
+
+//* background-origin 背景开始的位置 *//
+	//@params    padding-box || border-box || content-box
+.background-origin(@background-origin: padding-box){
+	-webkit-background-origin: @background-origin;
+	   -moz-background-origin: @background-origin;
+	        background-origin: @background-origin;
+}
+
+//* background-size 背景尺寸 *//
+	//@params    [ [ <length> | <percentage> | auto ]{1,2} | cover | contain ]#
+.background-size(@background-size: auto){
+	-webkit-background-size: @background-size;
+	   -moz-background-size: @background-size;
+	        background-size: @background-size;
+}
+
+//* box-shadow 图层阴影*//
+	// @params        none | [inset? && [ <offset-x> <offset-y> <blur-radius>? <spread-radius>? <color>? ] ]#
+	//                投影方式(可选) X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色;
+	//                如需要使用多阴影，可使用less过滤语法,如：~'-2px 0 5px green,0 -2px 5px blue,0 2px 5px red,2px 0 5px yellow'
+.box-shadow(@shadow: 0px 0px 5px #ccc){
+	-webkit-box-shadow: @shadow;
+	   -moz-box-shadow: @shadow;
+	        box-shadow: @shadow;
+}
+.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+	-webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	-moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	box-shadow:		@x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+.inner-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+	-webkit-box-shadow: inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+	-moz-box-shadow:    inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+	box-shadow:         inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+//* text-shadow *//
+	//none | <length> none | [<shadow>, ] * <shadow> 或none | <color> [, <color> ]*
+	//[x轴(X Offset) y轴(Y Offset)  模糊半径(Blur)  颜色(Color)],[x轴(X Offset) y轴(Y Offset)  模糊半径(Blur)  颜色(Color)]...
+	//多重阴影用：~'0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de'
+
+.text-shadow(@shadow:0px 0px 2px #333){
+	text-shadow: @shadow;
+}
+
+//* box-sizing 盒模型计算方式 *//
+	//@params         content-box   border-box  inherit
+.box-sizing(@sizing: content-box){
+	-webkit-box-sizing: @sizing;
+	   -moz-box-sizing: @sizing;
+	        box-sizing: @sizing;
+}
+
+//* font-face 自定义字体 *//    
+    //调用示例： .font-face("../style/font",abc);
+.font-face(@path, @font-name){
+	@font-face{
+		font-family: @font-name;
+		src: url('@{path}/@{font-name}.eot');
+		src: url('@{path}/@{font-name}.eot?#iefix') format('embedded-opentype'),
+		     url('@{path}/@{font-name}.woff') format('woff'),
+		     url('@{path}/@{font-name}.ttf')  format('truetype'),
+		     url('@{path}/@{font-name}.svg#svgFontName') format('svg');
+
+	}
+}
+
+//* linear-gradient 线性渐变 *//
+	//线性渐变效果较多，以下只是其中一种
+.linear-gradient(@startColor: #eee, @endColor: white){
+    @argbStartColor:argb(@startColor);
+    @argbEndColor:argb(@endColor);
+    background-color: @startColor;
+    background-image: -moz-linear-gradient(top,@startColor,@endColor);   //FF3.6+ 
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));  //Saf4+, Chrome 
+    background-image: -webkit-linear-gradient(top, @startColor, @endColor);  //Chrome 10+, Saf5.1+, iOS 5+ 
+    background-image: -ms-linear-gradient(top,@startColor,@endColor);  //IE10 
+    background-image: -o-linear-gradient(top,@startColor,@endColor);  //Opera 11.10+ 
+    background-image: linear-gradient(top, @startColor, @endColor);
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argbStartColor},endColors=@{argbEndColor})";    
+}
+.horizontal-gradient (@startColor: #eee, @endColor: white) {
+ 	background-color: @startColor;
+	background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+	background-image: -webkit-linear-gradient(left, @startColor, @endColor);
+	background-image: -moz-linear-gradient(left, @startColor, @endColor);
+	background-image: -ms-linear-gradient(left, @startColor, @endColor);
+	background-image: -o-linear-gradient(left, @startColor, @endColor);
+}
+
+//* transform 变形 *//
+	//@params  none | rotate | scale | skew | translate |matrix
+
+//** 用例与用法
+// * transform: none
+// * .rotate(60deg)
+// * .rotateX(30deg)
+// * .rotatey(30deg)
+// * .rotatez(30deg)
+// * .rotate3d(1, 2.0, 3.0, 10deg)
+// */
+
+//旋转
+.rotate(@degrees: 0deg) {
+	 -webkit-transform: rotate(@degrees);
+	    -moz-transform: rotate(@degrees);
+	     -ms-transform: rotate(@degrees);
+	      -o-transform: rotate(@degrees);
+	         transform: rotate(@degrees);
+}
+.rotateX(@degrees: 0deg){
+  -webkit-transform: rotateX(@arguments);
+     -moz-transform: rotateX(@arguments);
+      -ms-transform: rotateX(@arguments);
+       -o-transform: rotateX(@arguments);
+          transform: rotateX(@arguments);
+}
+.rotateY(@degrees: 0deg){
+  -webkit-transform: rotateY(@arguments);
+     -moz-transform: rotateY(@arguments);
+      -ms-transform: rotateY(@arguments);
+       -o-transform: rotateY(@arguments);
+          transform: rotateY(@arguments);
+}
+.rotateZ(@degrees: 0deg){
+  -webkit-transform: rotateZ(@arguments);
+     -moz-transform: rotateZ(@arguments);
+      -ms-transform: rotateZ(@arguments);
+       -o-transform: rotateZ(@arguments);
+          transform: rotateZ(@arguments);
+}
+.rotate3d(@x: 0, @y: 0, @z: 0, @degrees: 0deg){
+  -webkit-transform: rotate3d(@x, @y, @z, @degrees);
+     -moz-transform: rotate3d(@x, @y, @z, @degrees);
+      -ms-transform: rotate3d(@x, @y, @z, @degrees);
+       -o-transform: rotate3d(@x, @y, @z, @degrees);
+          transform: rotate3d(@x, @y, @z, @degrees);
+}
+
+//缩放
+//** 用例与用法
+// * .scale(2,.8)
+// * .scaleX(.8)
+// * .scaleY(2)
+// */
+.scale(@x:0, @y:0) {
+  -webkit-transform: scaleX(@x) scaleY(@y);
+     -moz-transform: scaleX(@x) scaleY(@y);
+      -ms-transform: scaleX(@x) scaleY(@y);
+       -o-transform: scaleX(@x) scaleY(@y);
+          transform: scaleX(@x) scaleY(@y);
+}
+.scaleX(@x: 0){
+  -webkit-transform: scaleX(@arguments);
+     -moz-transform: scaleX(@arguments);
+      -ms-transform: scaleX(@arguments);
+       -o-transform: scaleX(@arguments);
+          transform: scaleX(@arguments);
+}
+.scaleY(@y: 0){
+  -webkit-transform: scaleY(@arguments);
+     -moz-transform: scaleY(@arguments);
+      -ms-transform: scaleY(@arguments);
+       -o-transform: scaleY(@arguments);
+          transform: scaleY(@arguments);
+}
+
+//移动
+//** 用例与用法
+// * .translate(10px,10px)
+// * .translateX(20px)
+// * .translateY(20px)
+// * .translateZ(20px)
+// * .translate3d(60px,20px,10px)
+// */
+.translate(@x: 0px, @y: 0px){
+	-webkit-transform: translate(@x, @y);
+	   -moz-transform: translate(@x, @y);
+	    -ms-transform: translate(@x, @y);
+	     -o-transform: translate(@x, @y);
+	        transform: translate(@x, @y);
+}
+.translateX(@x: 0){
+	-webkit-transform: translateX(@x);
+	   -moz-transform: translateX(@x);
+	    -ms-transform: translateX(@x);
+	     -o-transform: translateX(@x);
+	        transform: translateX(@x);
+}
+.translateY(@y: 0){
+	-webkit-transform: translateY(@y);
+	   -moz-transform: translateY(@y);
+	    -ms-transform: translateY(@y);
+	     -o-transform: translateY(@y);
+	        transform: translateY(@y);
+}
+.translateZ(@z: 0){
+	-webkit-transform: translateZ(@z);
+	   -moz-transform: translateZ(@z);
+	    -ms-transform: translateZ(@z);
+	     -o-transform: translateZ(@z);
+	        transform: translateZ(@z);
+}
+.translate3d(@x: 0px, @y: 0px, @z: 0px) {
+  -webkit-transform: translate3d(@x, @y, @z);
+     -moz-transform: translate3d(@x, @y, @z);
+       -o-transform: translate3d(@x, @y, @z);
+          transform: translate3d(@x, @y, @z);
+}
+
+//扭曲或倾斜  
+//移动
+//** 用例与用法
+// * .skew(10deg,10deg)
+// * .skewX(10deg)
+// * .skewY(10deg)
+// */
+.skew(@x: 0deg, @y: 0deg){
+	-webkit-ransform: skew(@x, @y);
+	  -moz-transform: skew(@x, @y);
+	   -ms-transform: skew(@x, @y);
+	    -o-transform: skew(@x, @y);
+	       transform: skew(@x, @y);
+}
+.skewX(@X: 0deg){
+  -webkit-transform: skewX(@x);
+     -moz-transform: skewX(@x);
+      -ms-transform: skewX(@x);
+       -o-transform: skewX(@x);
+          transform: skewX(@x);
+}
+.skewY(@y: 0deg){
+  -webkit-transform: skewY(@y);
+     -moz-transform: skewY(@y);
+      -ms-transform: skewY(@y);
+       -o-transform: skewY(@y);
+          transform: skewY(@y);
+}
+
+.perspective(@perspective) {
+  -webkit-perspective: @perspective;
+     -moz-perspective: @perspective;
+          perspective: @perspective;
+}
+
+.perspective-origin(@perspective) {
+  -webkit-perspective-origin: @perspective;
+     -moz-perspective-origin: @perspective;
+          perspective-origin: @perspective;
+}
+
+.transform-origin(@origin) {
+  -webkit-transform-origin: @origin;
+     -moz-transform-origin: @origin;
+      -ms-transform-origin: @origin; // IE9 only
+          transform-origin: @origin;
+}
+
+//* transition 过渡 *//
+	//@params  transition-property || transition-duration || transition-timing-function || transition-delay
+    // * 详细可以查看 http://www.w3.org/TR/css3-transitions/
+    //.transition(background,1s,ease-in-out,6s)
+    //.transitions(~'width .2s ease 3s,height .5s ease 6s')   //多个过渡效果设置
+.transition(@property: all, @duration: 1s, @timing: linear, @delay: 0s){
+	-webkit-transition: @arguments;
+	   -moz-transition: @arguments;
+	     -o-transition: @arguments;
+	        transition: @arguments;
+}
+
+.transitions(@string){
+	-webkit-transition: @string;
+	   -moz-transition: @string;
+	     -o-transition: @string;
+	        transition: @string;
+}
+
+//**
+// * 需要transition的属性
+// * @type: {css-property} 如 all
+// */
+.transition-property(@type: all){
+	-webkit-transition-property: @type;
+	   -moz-transition-property: @type;
+	     -o-transition-property: @type;
+	        transition-property: @type;
+}
+
+//**
+// * 持续时间
+// * @type {time} 如0s
+// */
+.transition-duration(@type: 0s){
+	-webkit-transition-duration: @type;
+	   -moz-transition-duration: @type;
+	     -o-transition-duration: @type;
+	        transition-duration: @type;
+}
+
+//**
+// * 时间函数
+// * @param  {
+// *         [ ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | 
+// *         steps(<integer>[, [ start | end ] ]?) | cubic-bezier(<number>, <number>, <number>, <number>) ] 
+// *         [, [ ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | 
+// *         steps(<number>[, [ start | end ] ]?) | cubic-bezier(<number>, <number>, <number>, <number>) ] ]*
+// * }
+// * @transition-timing: ease          [description] 
+// */
+.transition-timing(@transition-timing: ease){
+	-webkit-transition-timing-function: @transition-timing;
+	   -moz-transition-timing-function: @transition-timing;
+		 -o-transition-timing-function: @transition-timing;
+	        transition-timing-function: @transition-timing;
+}
+
+//**
+// * 延迟时间
+// * @type {time} 如0s
+// */
+.transition-delay(@type: 0s){
+	-webkit-transition-delay: @type;
+	   -moz-transition-delay: @type;
+	     -o-transition-delay: @type;
+	        transition-delay: @type;
+}
+
+//* animations 动画 *//
+// * @param   animation-name | animation-duration | animation-timing-function | animation-delay | animation-iteration-count | animation-direction | animation-play-state
+// * 详细可以查看 http://www.w3.org/TR/css3-animations/
+// * .animation(myfirst 5s linear 2s infinite alternate)
+// * .animation(~'myfirst 5s linear 2s infinite alternate,myfirst2 6s linear 2s infinite alternate')
+.animation(@animation){
+	-webkit-animation: @animation;
+	   -moz-animation: @animation;
+	        animation: @animation;
+}
+
+//* 
+//  * 动画的名称
+//  * param    none | IDENT[,none | IDENT]*
+//  * IDENT是由Keyframes创建的动画名
+//  *//
+.animation-name(@name){
+	-wekbit-animation-name: @name;
+	   -moz-animation-name: @name;
+	     -o-animation-name: @name;
+	        animation-name: @name;
+}
+
+//* 播放动画所持续的时间长 
+//   @type: {time}  如2s
+//  */
+.animation-duration(@duration){
+	-wekbit-animation-duration: @duration;
+	   -moz-animation-duration: @duration;
+	     -o-animation-duration: @duration;
+	        animation-duration: @duration;
+}
+
+//* 动画时间函数 
+//   @param    ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)
+//  */
+.animation-timing-function(@timing-function){
+	-wekbit-animation-timing-function: @timing-function;
+	   -moz-animation-timing-function: @timing-function;
+	     -o-animation-timing-function: @timing-function;
+			animation-timing-function: @timing-function;
+} 
+
+//* 元素动画开始时间
+//  @type: {time}  如1s
+// */
+.animation-delay(@delay){
+	-webkit-animation-delay: @delay;
+	   -moz-animation-delay: @delay;
+	     -o-animation-delay: @delay;
+			animation-delay: @delay;
+}
+
+//* 元素播放动画的循环次数
+//  *param   infinite | <number> [, infinite | <number>]* 
+//  *可以取值<number>为数字，其默认值为“1”；infinite为无限次数循环
+//  */
+.animation-iteration-count(@iteration-count){
+	-webkit-animation-iteration-count: @iteration-count;
+	   -moz-animation-iteration-count: @iteration-count;
+		 -o-animation-iteration-count: @iteration-count;
+			animation-iteration-count: @iteration-count;
+}
+
+//* 元素动画播放的方向
+//  *param   normal | alternate [, normal | alternate]* 
+//  *默认值为normal，如果设置为normal时，动画的每次循环都是向前播放；另一个值是alternate，他的作用是，动画播放在第偶数次向前播放，第奇数次向反方向播放
+//  */
+.animation-direction(@direction){
+	-webkit-animation-direction: @direction;
+	   -moz-animation-direction: @direction;
+	     -o-animation-direction: @direction;
+			animation-direction: @direction;
+}
+
+//* 控制元素动画的播放状态
+//  *param   running | paused [, running | paused]* 
+//  *running和paused其中running为默认值
+//  */
+.animation-play-start(@play-start){
+	-webkit-animation-play-start: @play-start;
+	   -moz-animation-play-start: @play-start;
+		 -o-animation-play-start: @play-start;
+			animation-play-start: @play-start;
+}
+
+// =============================================
+// .retina {
+//   .retina-image("/img/bg-1x.png", "/img/bg-2x.png", 100px, 100px);
+// }
+// =============================================
+.retina-image(@file-1x, @file-2x, @width-1x, @height-1x) {
+  background-image: url("@{file-1x}");
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2), 
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("@{file-2x}");
+    background-size: @width-1x @height-1x;
+  }
+}
